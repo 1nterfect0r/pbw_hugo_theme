@@ -1,0 +1,26 @@
+{{- $menuID := .menuID -}}
+{{- $currentPage := .page -}}
+
+{{- if eq $menuID "main" }}
+<ul id="nav-menu-{{ $menuID }}" class="sm:flex w-full sm:w-auto hidden mt-2 sm:mt-0 sm:space-x-6">
+    {{- with index site.Menus $menuID }}
+    {{ range sort . "Weight" "asc" }}
+    <li>
+        <a href="{{ .URL }}" class="hover:text-sky-500 dark:hover:text-sky-500">
+            {{ .Name }}
+        </a>
+    </li>
+    {{ end }}
+    {{ else }}
+    <li>Keine Menüpunkte gefunden für Menü ID '{{ $menuID }}'.</li>
+    {{ end }}
+</ul>
+{{ else }}
+{{- with index site.Menus $menuID }}
+{{ range sort . "Weight" "asc" }}
+<a href="{{ .URL }}" class="underline hover:text-sky-400">
+    {{ .Name }}
+</a>
+{{ end }}
+{{ end }}
+{{ end }}

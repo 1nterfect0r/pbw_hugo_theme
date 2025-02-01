@@ -1,0 +1,18 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "pbw_hugo_theme"
+license = "MIT"
+licenselink = "https://github.com/1nterfect0r/pbw_hugo_theme/blob/main/LICENSE"
+description = "Pbw Hugo Theme"
+homepage = "https://github.com/1nterfect0r/pbw_hugo_theme"
+min_version = "0.88.0"
+
+[author]
+  name = "Hannes"
+  homepage = "https://github.com/1nterfect0r/"
+
+[original]
+    author = "Dirk Olbrich"
+    homepage = "https://github.com/dirkolbrich/"
+    repo = "https://github.com/dirkolbrich/hugo-tailwindcss-starter-theme"

@@ -1,0 +1,69 @@
+{{ define "main" }}
+<article class="prose dark:prose-invert prose-slate lg:prose-lg max-w-none">
+    <!-- Hero Section -->
+    {{ with .Params.hero }}
+    <section class="relative h-screen bg-cover bg-center hero-background">
+        <!-- Dynamisches Hintergrundbild -->
+        {{ with .image }}
+        {{ $img := resources.Get . }}
+        {{ $small := $img.Resize "600x" }}
+        {{ $medium := $img.Resize "1024x" }}
+        {{ $large := $img.Resize "1920x" }}
+        <style>
+            .hero-background {
+                background-image: url('{{ $medium.RelPermalink }}');
+            }
+
+            @media (max-width: 768px) {
+                .hero-background {
+                    background-image: url('{{ $small.RelPermalink }}');
+                }
+            }
+
+            @media (min-width: 1920px) {
+                .hero-background {
+                    background-image: url('{{ $large.RelPermalink }}');
+                }
+            }
+        </style>
+        {{ end }}
+
+        <!-- Dunkles Overlay für bessere Lesbarkeit -->
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+        <!-- Inhalt des Hero-Bereichs -->
+        <div class="relative z-10 text-center flex items-center justify-center h-full">
+            <div class="max-w-2xl px-4">
+                <!-- Titel mit weißer Schrift und Textschatten -->
+                <h1 class="text-5xl font-bold text-white drop-shadow-lg mb-4">{{ .title }}</h1>
+                <p class="text-xl text-white drop-shadow-md mb-6">{{ .subtitle }}</p>
+                <a href="{{ .buttonLink }}"
+                    class="bg-sky-500 text-white py-3 px-6 rounded-lg hover:bg-sky-600 transition-all duration-300 transform hover:scale-105">
+                    {{ .buttonText }}
+                </a>
+            </div>
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- Dynamischer Content aus der Markdown-Datei -->
+    <div>
+        {{ .Content }}
+    </div>
+
+    <!-- Call to Action Section -->
+    {{ with .Params.cta }}
+    <section class="relative py-16 bg-gradient-to-r from-sky-600 to-sky-400 text-white text-center">
+        <div class="absolute inset-0 bg-opacity-20 pointer-events-none"></div>
+        <div class="relative z-10">
+            <h2 class="text-4xl font-bold mb-4 drop-shadow-lg">{{ .title }}</h2>
+            <p class="text-xl mb-6 drop-shadow-md">{{ .content }}</p>
+            <a href="{{ .buttonLink }}"
+                class="bg-white text-sky-600 py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                {{ .buttonText }}
+            </a>
+        </div>
+    </section>
+    {{ end }}
+</article>
+{{ end }}

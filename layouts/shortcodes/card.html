@@ -1,0 +1,54 @@
+<div
+  class='card bg-white dark:bg-slate-600 shadow-md hover:shadow-lg transition rounded-lg px-4 mb-2 {{ if not (.Get "open") }}h-32{{ end }}'>
+  <div class="flex items-center justify-between cursor-pointer" data-card-id='{{ .Get "id" }}'
+    onclick="toggleCard(this)">
+    <!-- Titel, Icon und Status (sichtbar von Anfang an) -->
+    <div class="flex items-center space-x-2">
+      <img src='{{ .Get "icon" }}' alt="{{ .Get " title" }}" class="w-12 h-12 my-0 mx-2 object-contain">
+      <div class="leading-tight">
+        <h3 class="text-base font-semibold mb-0 mt-0 text-left text-gray-900 dark:text-gray-100">{{ .Get "title" }}</h3>
+        <!-- Status-Badge wird immer angezeigt -->
+        {{ if eq (.Get "status") "aktiv" }}
+        <span class="inline-block mt-0.5 mb-1 px-2 py-0.5 text-sm bg-green-500 text-white rounded-full">Aktiv</span>
+        {{ else }}
+        <span class="inline-block mt-0.5 mb-1 px-2 py-0.5 text-sm bg-gray-400 text-white rounded-full">In
+          Planung</span>
+        {{ end }}
+      </div>
+    </div>
+    <!-- Icon zum Öffnen/Schließen -->
+    <svg id='{{ .Get "id" }}-icon' class="w-5 h-5 text-gray-600 dark:text-gray-400 transform transition-transform"
+      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+    </svg>
+  </div>
+
+  <!-- Versteckter Inhalt, der beim Klicken sichtbar wird -->
+  <div id='{{ .Get "id" }}-content' class='mt-2 mx-2 {{ if not (.Get "open") }}hidden{{ end }}'>
+    <p class="text-gray-600 dark:text-gray-300 text-left text-lg">{{ .Get "description" }}</p>
+  </div>
+</div>
+
+<script>
+  function toggleCard(element) {
+    // Abrufen der ID des Karten-Elements
+    var cardId = element.getAttribute('data-card-id');
+    if (!cardId) { console.error('Keine gültige ID übergeben für die Karte.'); return; }
+
+    var content = document.getElementById(cardId + '-content');
+    var icon = document.getElementById(cardId + '-icon');
+    var card = element.closest('.card'); // Parent-Karten-Element
+
+    if (content.classList.contains('hidden')) {
+      // Inhalt sichtbar machen
+      content.classList.remove('hidden');
+      icon.classList.add('rotate-90');
+      card.classList.remove('h-32'); // Klasse für feste Höhe entfernen
+    } else {
+      // Inhalt verstecken
+      content.classList.add('hidden');
+      icon.classList.remove('rotate-90');
+      card.classList.add('h-32'); // Klasse für feste Höhe hinzufügen
+    }
+  }
+</script>

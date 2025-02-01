@@ -1,0 +1,27 @@
+<section class='{{ if .Get "reversed" }}bg-gray-100 dark:bg-gray-800 md:flex-row-reverse
+    {{ else }}bg-white dark:bg-gray-900 md:flex-row{{ end }}
+    py-16 flex flex-col items-center'>
+    <div class="w-full md:w-1/2 px-4">
+        {{ .Inner | markdownify }}
+    </div>
+    <div class="w-full md:w-1/2">
+
+        {{ with .Get "image" }}
+        {{ $img := resources.Get . }}
+        {{ if $img }}
+        <!-- Bilder in optimierten Größen erstellen -->
+        {{ $small := $img.Resize "400x" }}
+        {{ $medium := $img.Resize "600x" }}
+        {{ $large := $img.Resize "728x" }}
+        <img src="{{ $medium.RelPermalink }}"
+            srcset="{{ $small.RelPermalink }} 400w, {{ $medium.RelPermalink }} 600w, {{ $large.RelPermalink }} 728w"
+            sizes="(max-width: 768px) 87vw, (max-width: 1536px) 47vw, 728px" alt="Section Image"
+            class="w-full h-auto object-cover rounded-lg shadow-lg">
+        {{ end }}
+        {{ end }}
+
+
+
+
+    </div>
+</section>

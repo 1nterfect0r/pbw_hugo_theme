@@ -1,0 +1,39 @@
+{{ define "main" }}
+<article class="justify-self-center mx-auto px-8 mb-16 sm:px-6 md:px-4 prose dark:prose-invert prose-slate xl:max-w-7xl lg:max-w-6xl lg:prose-lg
+     hover:prose-a:text-sky-500 pt-4 sm:pt-16">
+
+    <h1>{{ .Title }}</h1>
+
+    <p>
+        {{ .Site.Params.impressum.name }}<br>
+        {{ .Site.Params.impressum.address }}<br>
+        {{ .Site.Params.impressum.zipCity }}
+    </p>
+    <p>
+        {{ .Site.Params.impressum.phone }}<br>
+        {{ .Site.Params.impressum.email }}
+    </p>
+
+    {{ if and .Site.Params.impressum.registerCourt .Site.Params.impressum.registerNumber }}
+    <p>Registergericht: {{ .Site.Params.impressum.registerCourt }}</p>
+    <p>Registernummer: {{ .Site.Params.impressum.registerNumber }}</p>
+    {{ end }}
+
+    {{ if or .Site.Params.impressum.representatives.chairperson1 .Site.Params.impressum.representatives.chairperson2
+    .Site.Params.impressum.representatives.treasurer }}
+    <p>Gemeinschaftlich vertretungsbefugt:</p>
+    <ul>
+        {{ with .Site.Params.impressum.representatives.chairperson1 }}
+        <li>1. Vorsitzender: {{ . }}</li>
+        {{ end }}
+        {{ with .Site.Params.impressum.representatives.chairperson2 }}
+        <li>2. Vorsitzender: {{ . }}</li>
+        {{ end }}
+        {{ with .Site.Params.impressum.representatives.treasurer }}
+        <li>Kassenwart: {{ . }}</li>
+        {{ end }}
+    </ul>
+    {{ end }}
+
+</article>
+{{ end }}
