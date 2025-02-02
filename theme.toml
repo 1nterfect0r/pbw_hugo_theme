@@ -6,7 +6,7 @@ license = "MIT"
 licenselink = "https://github.com/1nterfect0r/pbw_hugo_theme/blob/main/LICENSE"
 description = "Pbw Hugo Theme"
 homepage = "https://github.com/1nterfect0r/pbw_hugo_theme"
-min_version = "0.88.0"
+min_version = "0.142.0"
 
 [author]
   name = "Hannes"

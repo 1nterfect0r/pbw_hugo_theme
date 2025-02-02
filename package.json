@@ -1,7 +1,7 @@
 {
-    "name": "pfadfinder_pbw",
+    "name": "pbw_hugo_theme",
     "version": "1.0.0",
-    "description": "Pfadfinder PbW",
+    "description": "Pbw Hugo Theme",
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
