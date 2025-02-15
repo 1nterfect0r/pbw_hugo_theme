@@ -26,6 +26,7 @@
   - ```cd ../../```
   - ```printf "/public\n/resources\n.hugo_build.lock\n" >> .gitignore```
   - ```cp themes/pbw_hugo_theme/exampleSite/hugo.toml hugo.toml```
+  - ```cp themes/pbw_hugo_theme/exampleSite/_index.md content/_index.md```
 - bei 3. weiter machen (die git bash ist bereits passend geöffnet)
 
 
