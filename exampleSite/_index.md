@@ -10,13 +10,15 @@ type = "miscellaneous"
   subtitle = "Abenteuer, Gemeinschaft und Natur erleben"
   buttonLink = "/kontakt/"
   buttonText = "Werde Mitglied"
+  buttonColor = "bg-sky-500 hover:bg-sky-600"
 
 [cta]
-  background = "bg-sky-600"
   title = "Werde Mitglied!"
   content = "Interessiert? Dann werde Teil unserer Gemeinschaft und sei dabei, wenn es wieder heißt: 'Auf ins nächste Abenteuer!'"
   buttonLink = "/kontakt/"
   buttonText = "Mitglied werden"
+  buttonColor = "bg-white text-sky-600 hover:bg-gray-100"
+  background = "bg-gradient-to-r from-sky-600 to-sky-400"
 +++
 
 {{< text_image_section image="images/example_2.jpg" >}}
