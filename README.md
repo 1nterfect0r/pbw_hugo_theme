@@ -26,7 +26,7 @@
   - ```cd ../../```
   - ```printf "/public\n/resources\n.hugo_build.lock\n" >> .gitignore```
   - ```cp themes/pbw_hugo_theme/exampleSite/hugo.toml hugo.toml```
-  - ```cp themes/pbw_hugo_theme/exampleSite/_index.md content/_index.md```
+  - ```hugo new content --kind landing_page _index.md```
 - bei 3. weiter machen (die git bash ist bereits passend geöffnet)
 
 
@@ -38,8 +38,12 @@
 - Für komfortables bearbeiten der Website eignet sich VS Code (siehe Programme), es kann alternativ auch mit einem beliebigen Textbearbeitungsprogramm (Windows Editor, Notepad++, etc.) genutzt werden
 - Um eine neue Version zu speichern ```git commit -a```
 
+
 ### 4. Deployen
-tbd
+```hugo```   
+In this step you will publish your site, but you will not deploy it. 
+When you publish your site, Hugo creates the entire static site in the public directory in the root of your project. This includes the HTML files, and assets such as images, CSS files, and JavaScript files.
+
 
 ### 5. Updaten
 - Hugo
@@ -47,4 +51,6 @@ tbd
   - um eine neuere Version zu nutzen, wie oben unter "Programme installieren" erklärt, die neuste Version herunterladen und die alter Datei (Executable) ersetzen.
 - pbw_hugo_theme
   - ```git submodule update --remote```
-
+  - ```cd .\themes\pbw_hugo_theme\```
+  - ```npm install```
+  - ``` cd ../..```
