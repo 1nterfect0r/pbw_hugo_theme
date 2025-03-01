@@ -40,9 +40,12 @@
 
 
 ### 4. Deployen
-```hugo```   
+```hugo --gc --minify```
 In this step you will publish your site, but you will not deploy it. 
 When you publish your site, Hugo creates the entire static site in the public directory in the root of your project. This includes the HTML files, and assets such as images, CSS files, and JavaScript files.
+- ```rclone sync public/ example_site:www/```
+  - remote name: "example_site" (setup with ```rclone config```)
+  - syncs the files in the local dir "public" into the server dir "www" (includes deleting files on the server)
 
 
 ### 5. Updaten
