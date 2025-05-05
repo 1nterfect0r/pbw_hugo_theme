@@ -18,7 +18,8 @@
         <a href='{{ "/" | relLangURL }}'
             class="flex items-center text-slate-800 dark:text-slate-200 font-bold text-3xl">
             <img src="/images/logo.png" alt="Logo" class="h-8 w-8 mr-2 object-contain">
-            {{ .Site.Title }}
+            <!-- {{ .Site.Title }} -->
+            {{ .Site.Params.name }}
         </a>
 
         <input id="nav-toggle" type=checkbox class="hidden">
