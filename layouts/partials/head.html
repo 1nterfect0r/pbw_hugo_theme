@@ -10,10 +10,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
 
     <title>{{ block "title" . }}
-        {{- .Title }} - {{ .Site.Title -}}
+        {{- .Title }} - {{ .Site.Params.Name -}}
         {{ end }}</title>
-    {{- if .Description }}
-    <meta name="description" content="{{ .Description }}" />
+    {{- if .Params.Description }}
+    <meta name="description" content="{{ .Params.Description }}" />
     {{ end -}}
     {{- if .Keywords }}
     <meta name="keywords" content="{{ delimit .Keywords " ," }}" />
