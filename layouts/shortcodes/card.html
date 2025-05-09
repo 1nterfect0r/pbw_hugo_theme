@@ -4,7 +4,7 @@
     onclick="toggleCard(this)">
     <!-- Titel, Icon und Status (sichtbar von Anfang an) -->
     <div class="flex items-center space-x-2">
-      <img src='{{ .Get "icon" }}' alt="{{ .Get " title" }}" class="w-12 h-12 my-0 mx-2 object-contain">
+      <img src='{{ .Get "icon" | absURL }}' alt='{{ .Get "title" }}' class="w-12 h-12 my-0 mx-2 object-contain">
       <div class="leading-tight">
         <h3 class="text-base font-semibold mb-0 mt-0 text-left text-gray-900 dark:text-gray-100">{{ .Get "title" }}</h3>
         <!-- Status-Badge wird immer angezeigt -->
