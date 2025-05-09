@@ -15,10 +15,9 @@
     </style>
 
     <nav class="flex items-center justify-between flex-wrap">
-        <a href='{{ "/" | relLangURL }}'
+        <a href='{{ "/" | absLangURL }}'
             class="flex items-center text-slate-800 dark:text-slate-200 font-bold text-3xl">
-            <img src="/images/logo.png" alt="Logo" class="h-8 w-8 mr-2 object-contain">
-            <!-- {{ .Site.Title }} -->
+            <img src='{{ "images/logo.png" | absURL }}' alt="Logo" class="h-8 w-8 mr-2 object-contain">
             {{ .Site.Params.name }}
         </a>
 
@@ -88,41 +87,21 @@
         // themeSystemIcon.classList.toggle("hidden");
         // themeLightIcon.classList.toggle("hidden");
         // localStorage.setItem("color-theme", "light");
-        // document.documentElement.classList.remove('dark');
-        // } else if (themeLightIcon.classList.contains("hidden") == false) {
-        // themeLightIcon.classList.toggle("hidden");
-        // themeDarkIcon.classList.toggle("hidden");
-        // localStorage.setItem("color-theme", "dark");
-        // document.documentElement.classList.add('dark');
-        // } else if (themeDarkIcon.classList.contains("hidden") == false) {
-        // themeDarkIcon.classList.toggle("hidden");
-        // themeSystemIcon.classList.toggle("hidden");
-        // localStorage.removeItem("color-theme");
-        // if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // document.documentElement.classList.add('dark');
-        // }
-        // } else {
-        // /* default fallback to system preference */
-        // themeSystemIcon.classList.remove("hidden");
-        // themeLightIcon.classList.add("hidden");
-        // themeDarkIcon.classList.add("hidden");
-        // localStorage.removeItem("color-theme");
-        // if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // document.documentElement.classList.add('dark');
-        // }
-        // }
-        // }
-        // function setupThemeIndicator() {
-        // /* load theme variable from local storage */
-        // if (localStorage.getItem("color-theme") === "dark") {
-        // var themeParameter = "dark";
-        // } else if (localStorage.getItem("color-theme") === "light") {
-        // var themeParameter = "light";
-        // } else {
-        // var themeParameter = "system";
-        // }
-        // setThemeVisibility(themeParameter);
-        // }
-        // window.onload = setupThemeIndicator;
+        // document.documentElement.classList.remove(' dark'); // } else if
+        // (themeLightIcon.classList.contains("hidden") == false) { // themeLightIcon.classList.toggle("hidden"); //
+        //     themeDarkIcon.classList.toggle("hidden"); // localStorage.setItem("color-theme", "dark" ); //
+        //     document.documentElement.classList.add('dark'); // } else if
+        //     (themeDarkIcon.classList.contains("hidden") == false) { // themeDarkIcon.classList.toggle("hidden"); //
+        //         themeSystemIcon.classList.toggle("hidden"); // localStorage.removeItem("color-theme"); // if
+        //         (window.matchMedia('(prefers-color-scheme: dark)').matches) { //
+        //             document.documentElement.classList.add('dark'); // } // } else { // /* default fallback to system
+        //             preference * / / / themeSystemIcon.classList.remove("hidden"); // themeLightIcon.classList.add("hidden");
+        //             // themeDarkIcon.classList.add("hidden"); // localStorage.removeItem("color-theme"); // if
+        //             (window.matchMedia('(prefers-color-scheme: dark)').matches) { //
+        //                 document.documentElement.classList.add('dark'); // } // } // } // function setupThemeIndicator() { // /*
+        //         load theme variable from local storage * / / / if (localStorage.getItem("color-theme") === "dark") { // var
+        //                     themeParameter = "dark"; // } else if (localStorage.getItem("color-theme")==="light" ) { // var
+        //                     themeParameter = "light"; // } else { // var themeParameter="system" ; // } //
+        //                     setThemeVisibility(themeParameter); // } // window.onload=setupThemeIndicator; 
     </script>
 </header>
